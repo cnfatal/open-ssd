@@ -1,0 +1,18 @@
+tmp/
+.vscode/
+build/
+build-*/
+
+# 用户自行放入的厂商资产（固件、参数表、包内容）
+assets/**/*
+!assets/README.md
+!assets/.gitkeep
+
+# Python local environment and build outputs
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.ruff_cache/
+.pytest_cache/

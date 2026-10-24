@@ -1,0 +1,46 @@
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
+
+[project]
+name = "ossd"
+version = "0.1.0"
+description = "SM2263XT open initialization tool"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+usb = ["pyusb>=1.2"]
+
+[project.scripts]
+ossd = "ossd.cli:main"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.414",
+    "pytest>=9",
+    "ruff>=0.15",
+]
+
+[tool.uv.build-backend]
+module-root = ""
+source-include = ["tests/**", "uv.lock", ".python-version"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["assets", "tmp"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.pyright]
+include = ["ossd", "tests"]
+exclude = ["assets", "tmp"]
+typeCheckingMode = "standard"
+pythonVersion = "3.10"
+venvPath = "."
+venv = ".venv"
