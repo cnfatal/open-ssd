@@ -1,7 +1,9 @@
-# open-ssd
+# open-ssd — SM2263 跨平台开卡工具
 
-SM2263XT 的 Python 开卡与协议分析工具，通过 JMS583 USB 桥操作主控。
-配置来自原厂包、设备实读数据和显式命令行参数。
+Open-source, cross-platform alternative to Silicon Motion MPTool.
+
+慧荣 **SM2263 系列**的 MPTool 替代工具，使用 Python 编写，支持 macOS、Linux 和 Windows。
+提供参数生成、坏块扫描、固件组包与系统区写入。
 
 ## 安装
 
@@ -58,7 +60,7 @@ sudo .venv/bin/ossd open \
 
 MPInfo 六组 PCI/NVMe ID 副本的遗漏已修复，并通过原指令离线对照；
 修正版尚未重刷做原生 M.2 验收。当前原厂开卡盘已在 Linux M2.2 实测 Gen3 x4。
-故障证据已归档到 `tmp/docs-cleanup-2026-10-24/evidence/python-mpinfo-pci-ids-2026-10-24/`。
+字段来源与生成规则见 [MPInfo 协议分析](docs/06-analysis/mpinfo.md)。
 
 ## 目录
 
@@ -69,14 +71,12 @@ pyproject.toml   包、依赖组、格式化、lint 与测试配置
 uv.lock          锁定依赖
 .python-version  开发 Python 版本
 .github/         CI 工作流
-docs/            协议、流程和实测证据
+docs/            概念、协议、操作流程和验证结论
 assets/          用户自行提供的原厂资产（忽略提交）
 tmp/             临时产物、历史夹具和旧实现（忽略提交）
 ```
 
-旧 C 源码、头文件、测试、CMake 和构建目录已移到
-`tmp/legacy-c-2026-10-24/`，标记为删除，不参与当前项目。
-
 - [开卡流程](docs/02-controller/sm2263xt/opening/card-opening-guide.md)
+- [实际案例：SM2263XT + YMTC 开卡](docs/07-cases/sm2263xt-ymtc.md)
 - [数据来源与主流程](docs/05-reference/design.md)
 - [文档索引](docs/README.md)

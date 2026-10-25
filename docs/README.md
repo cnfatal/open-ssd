@@ -14,6 +14,10 @@
 
 命令参数以 `python3 -m ossd --help` 及各子命令 `--help` 为准。
 
+## 实际案例
+
+- [SM2263XT + YMTC：开卡与原生 PCIe 验证](07-cases/sm2263xt-ymtc.md)
+
 ## 协议与原理
 
 - 通用概念：[架构](01-concepts/architecture.md)、[术语](01-concepts/glossary.md)、[NAND几何](01-concepts/nand-geometry.md)、[存储布局](01-concepts/storage-layout.md)、[坏块与重映射](01-concepts/bad-block-and-remap.md)
